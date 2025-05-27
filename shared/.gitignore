@@ -1,0 +1,5 @@
+# Ignore everything inside the shared folder
+*
+
+# But keep the .gitkeep file
+!shared/.gitkeep

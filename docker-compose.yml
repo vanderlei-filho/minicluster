@@ -1,0 +1,39 @@
+services:
+  mpi-master:
+    build:
+      context: .
+      dockerfile: base/amazon_linux.Dockerfile
+    container_name: mpi-master
+    hostname: mpi-master
+    volumes:
+      - ./shared:/shared
+    networks:
+      - mpi-cluster
+    tty: true
+    stdin_open: true
+    environment:
+      - MPI_ROLE=master
+    ports:
+      - "2222:22"
+
+  mpi-worker:
+    build:
+      context: .
+      dockerfile: base/amazon_linux.Dockerfile
+    volumes:
+      - ./shared:/shared
+    networks:
+      - mpi-cluster
+    tty: true
+    stdin_open: true
+    environment:
+      - MPI_ROLE=worker
+    depends_on:
+      - mpi-master
+
+networks:
+  mpi-cluster:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
