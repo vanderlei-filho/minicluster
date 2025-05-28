@@ -6,7 +6,7 @@
 set -e
 
 COMPOSE_FILE="docker-compose.yml"
-DOCKERFILE="base/amazon_linux.Dockerfile"
+DOCKERFILE="images/amazon_linux.Dockerfile"
 
 # Colors for output
 RED='\033[0;31m'

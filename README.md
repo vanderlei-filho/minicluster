@@ -1,4 +1,4 @@
-# Local Cluster Sandbox
+# Minicluster
 
 This repository contains scripts, Dockerfiles, and Docker Compose YAML files to set up a local cluster of containers that can be used to emulate cloud instances.  
 The `cluster.sh` script manages the lifecycle of the cluster and assumes a **1 MPI process per container (node)** mapping for simplified MPI testing and development.

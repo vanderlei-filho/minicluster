@@ -2,7 +2,7 @@ services:
   mpi-master:
     build:
       context: .
-      dockerfile: base/amazon_linux.Dockerfile
+      dockerfile: images/amazon_linux.Dockerfile
     container_name: mpi-master
     hostname: mpi-master
     volumes:
@@ -19,7 +19,7 @@ services:
   mpi-worker:
     build:
       context: .
-      dockerfile: base/amazon_linux.Dockerfile
+      dockerfile: images/amazon_linux.Dockerfile
     volumes:
       - ./shared:/shared
     networks:
